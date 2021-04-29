@@ -61,13 +61,8 @@ module.exports = {
       url: "https://www.linkedin.com/in/konstantin-muenster/",
     },
     {
-      name: "Medium",
-      url: "https://konstantinmuenster.medium.com/",
-    },
-    {
-      name: "Github",
-      url:
-        "https://github.com/konstantinmuenster/gatsby-starter-portfolio-minimal",
+      name: "Mail",
+      url: "mailto:mail@konstantin.digital",
     },
   ],
 
@@ -100,7 +95,7 @@ module.exports = {
       url: "/privacy",
     },
     {
-      name: "Terms",
+      name: "Imprint",
       url: "/imprint",
     },
   ],

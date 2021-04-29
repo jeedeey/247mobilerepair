@@ -75,17 +75,14 @@ const StyledContentWrapper = styled(ContentWrapper)`
           display: block;
           -webkit-appearance: none;
         }
-
         &::-webkit-scrollbar:horizontal {
           height: 0.8rem;
         }
-
         &::-webkit-scrollbar-thumb {
           border-radius: 8px;
           border: 0.2rem solid ${({ theme }) => theme.colors.background};
           background-color: ${({ theme }) => theme.colors.scrollBar};
         }
-
         &::-webkit-scrollbar-track {
           background-color: ${({ theme }) => theme.colors.background};
           border-radius: 8px;
@@ -111,7 +108,7 @@ const StyledProject = styled(motion.div)`
   justify-content: flex-end;
   align-items: center;
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 2rem;
   flex-shrink: 0;
   padding-right: 2.5rem;
   max-width: 20rem;
@@ -143,7 +140,7 @@ const StyledProject = styled(motion.div)`
       font-size: 0.875rem;
       line-height: 1rem;
       text-transform: uppercase;
-      letter-spacing: +0.5px;
+      letter-spacing: +1px;
     }
     .title {
       margin-top: 0.625rem;
@@ -155,11 +152,11 @@ const StyledProject = styled(motion.div)`
     .tags {
       display: flex;
       flex-wrap: wrap;
-      margin-top: 1.2rem;
+      margin-top: 1.5rem;
       line-height: 1.2rem;
       span {
         margin-right: 1rem;
-        margin-bottom: .6rem;
+        margin-bottom: 1rem;
       }
     }
     .links {
@@ -285,10 +282,11 @@ const Projects = ({ content }) => {
                   }
                 >
                   <div className="details">
-                  <div className="title">{frontmatter.title}</div>
                     <div className="category">
                       {frontmatter.emoji} {frontmatter.category}
                     </div>
+                    <div className="title">{frontmatter.title}</div>
+                    <MDXRenderer>{body}</MDXRenderer>
                     <div className="tags">
                       {frontmatter.tags.map(tag => (
                         <Underlining key={tag} highlight>
@@ -296,7 +294,6 @@ const Projects = ({ content }) => {
                         </Underlining>
                       ))}
                     </div>
-                    <MDXRenderer>{body}</MDXRenderer>
                     <div className="links">
                       {frontmatter.github && (
                         <a
@@ -360,6 +357,9 @@ const Projects = ({ content }) => {
           rel="nofollow noopener noreferrer"
           aria-label="External Link"
         >
+          <Button type="button" textAlign="center" center>
+            {sectionDetails.frontmatter.buttonText}
+          </Button>
         </motion.a>
       )}
     </StyledSection>

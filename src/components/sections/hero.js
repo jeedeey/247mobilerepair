@@ -102,47 +102,48 @@ const Hero = ({ content }) => {
   }, [isIntroDone, darkMode, eControls, gControls, sControls, uControls])
 
   return (
-      <StyledSection id="hero">
+    <StyledSection id="hero">
       <BackgroundImage
-    Tag="section"
-    fluid={frontmatter.backgroundimage.childImageSharp.fluid}
-    >
-      <StyledContentWrapper>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={gControls}
-          data-testid="animated-heading"
-        >
-          <h1 className="title">
-            <div className="greetings">
-              {frontmatter.greetings}
-              <motion.div
-                animate={eControls}
-                style={{ originX: 0.7, originY: 0.7 }}
-              >
-                <Img
-                  className="emoji"
-                  fluid={frontmatter.icon.childImageSharp.fluid}
-                />
-              </motion.div>
+        Tag="section"
+        fluid={frontmatter.backgroundimage.childImageSharp.fluid}
+      >
+        <StyledContentWrapper>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={gControls}
+            data-testid="animated-heading"
+          >
+            <h1 className="title">
+              <div className="greetings">
+                {frontmatter.greetings}
+                <motion.div
+                  animate={eControls}
+                  style={{ originX: 0.7, originY: 0.7 }}
+                >
+                  <Img
+                    className="emoji"
+                    fluid={frontmatter.icon.childImageSharp.fluid}
+                  />
+                </motion.div>
+              </div>
+              {frontmatter.title}
+            </h1>
+            <h2 className="subtitle">
+              {frontmatter.subtitlePrefix}{" "}
+              <AnimatedUnderlining animate={uControls} big>
+                {frontmatter.subtitle}
+              </AnimatedUnderlining>
+            </h2>
+            <div className="description">
+              <MDXRenderer>{body}</MDXRenderer>
             </div>
-            {frontmatter.title}
-          </h1>
-          <h2 className="subtitle">
-            {frontmatter.subtitlePrefix}{" "}
-            <AnimatedUnderlining animate={uControls} big>
-              {frontmatter.subtitle}
-            </AnimatedUnderlining>
-          </h2>
-          <div className="description">
-            <MDXRenderer>{body}</MDXRenderer>
-          </div>
-        </motion.div>
-        <Button type="button" textAlign="center" center>book phone repair</Button>
-      </StyledContentWrapper>
+          </motion.div>
+          <Button type="button" textAlign="center" center>
+            book phone repair
+          </Button>
+        </StyledContentWrapper>
       </BackgroundImage>
     </StyledSection>
-    
   )
 }
 
